@@ -17,7 +17,7 @@ const BookCard = (props: Book) => {
             <img src={book.cover_image} className="card-img-top img-fluid img-cover" alt="Single Service cover" />
             <div className="card-body bg-dark">
                 <h5 className="card-title">{book.title}</h5>
-                <div className="card-text d-flex">
+                <div className="card-text my-2 d-flex">
                     <span className="me-auto">{book.tags}</span>
                     <span>Points: <strong>{book.points}</strong></span>
                 </div>

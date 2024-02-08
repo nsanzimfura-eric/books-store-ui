@@ -70,7 +70,7 @@
 }
 
 @mixin appBtn {
-  padding: pxToEm(20) pxToEm(26);
+  padding: pxToEm(12) pxToEm(20);
   font-size: pxToEm(16);
   border: 1px solid transparent;
   border-radius: 5px;
@@ -78,14 +78,15 @@
   @include transition;
   font-family: $polisMedium;
   @include mq($xlg) {
-    padding: pxToEm(18) pxToEm(24);
-  }
-  @include mq($lg) {
-    padding: pxToEm(16) pxToEm(20);
+    padding: pxToEm(10) pxToEm(16);
+    font-size: pxToEm(14);
   }
   @include mq($md) {
-    padding: pxToEm(15) pxToEm(18);
-    font-size: pxToEm(14);
+    padding: pxToEm(8) pxToEm(14);
+    font-size: pxToEm(12);
+  }
+  @include mq($xls) {
+    font-size: pxToEm(10);
   }
   &:hover {
     background-color: transparent;

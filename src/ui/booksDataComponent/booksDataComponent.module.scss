@@ -22,13 +22,20 @@
     }
     .cardWrapper {
       border-radius: 10px;
-      width: calc(100% / 3 - 30px);
+      width: calc(100% / 5 - 30px);
       aspect-ratio: 16/9;
       height: auto;
       @include mq($lgx) {
-        width: calc(100% / 2 - 30px);
+        width: calc(100% / 4 - 30px);
       }
-      @include mq($sm) {
+
+      @include mq($md) {
+        width: calc(100% / 3 - 20px);
+      }
+      @include mq($xls) {
+        width: calc(100% / 2 - 20px);
+      }
+      @include mq($xms) {
         width: 100%;
       }
     }
