@@ -1,0 +1,91 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/variables.scss";
+
+.navbar {
+  :global {
+    position: relative;
+    z-index: 100;
+    border-bottom: 1px solid $border;
+    border-radius: 0 0 5px 5px;
+    .navbarWrapper {
+      background-color: transparent;
+    }
+    .scrollingDown {
+      backdrop-filter: blur(34px);
+    }
+
+    h1 {
+      @include h1;
+      font-family: $durer;
+      position: relative;
+      small {
+        @include p;
+        color: $error;
+        font-family: $durer;
+        position: absolute;
+        top: -20px;
+        right: -20px;
+        @include mq($xls) {
+          top: -10px;
+          right: -10px;
+        }
+      }
+    }
+    .brand {
+      img {
+        width: 100px;
+        aspect-ratio: 1/1;
+        height: auto;
+        @include mq($md) {
+          width: 70px;
+        }
+      }
+    }
+
+    .links {
+      background-color: transparent;
+      padding: 0 10px;
+      border: none;
+      @include p;
+      color: $light;
+      position: relative;
+      @include transition;
+      text-decoration: none;
+      @include mq($lg) {
+        padding: 10px 0;
+      }
+      &:hover {
+        color: $success;
+      }
+
+      h2 {
+        @include h3;
+        position: relative;
+        small {
+          @include p;
+          color: $error;
+          font-family: $durer;
+          position: absolute;
+          top: -15px;
+          right: -15px;
+          @include mq($lgx) {
+            top: -10px;
+            right: -10px;
+          }
+        }
+      }
+    }
+    .navLinksWrapper {
+      @include mq($lg) {
+        backdrop-filter: blur(34px) !important;
+        .links {
+          @include h3;
+          color: $light;
+        }
+      }
+    }
+    .active {
+      color: $success;
+    }
+  }
+}

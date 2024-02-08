@@ -1,0 +1,36 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/variables.scss";
+
+.booksDataComponent {
+  :global {
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+
+    h2 {
+      @include h2;
+    }
+    small {
+      font-family: $poiret;
+    }
+    .servicesWrapper {
+      background-color: transparent;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    .cardWrapper {
+      border-radius: 10px;
+      width: calc(100% / 3 - 30px);
+      aspect-ratio: 16/9;
+      height: auto;
+      @include mq($lgx) {
+        width: calc(100% / 2 - 30px);
+      }
+      @include mq($sm) {
+        width: 100%;
+      }
+    }
+  }
+}

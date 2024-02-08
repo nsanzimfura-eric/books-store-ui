@@ -1,0 +1,47 @@
+//  colors
+
+$primary: #000000;
+$dark: #ffffff;
+$darkOpaque: rgba(0, 0, 0, 0.4);
+$light: #000000;
+$lightOpaque: rgb(255, 255, 255, 0.5);
+$secondary: #f1f0f0;
+$border: #cacaca;
+$wood: #71675d;
+// effects colors
+$success: #97c584;
+$warning: #f7e701;
+$error: #ff0000;
+
+// fonts families
+
+$polisMedium: MetropolisMedium, "sans-serif";
+$polisLight: MetropolisLight, "sans-serif";
+$polisRegular: Poiret, "sans-serif";
+$polisSemiBold: Poiret, "sans-serif";
+$polisBold: MetropolisBold, "sans-serif";
+$polisThin: Poiret, "sans-serif";
+$polisExtraBold: MetropolisExtraBold, "sans-serif";
+$durer: Durer, "sans-serif";
+$durer1: Durer, Poiret;
+$poiret: Poiret, Durer, "sans-serif";
+
+//  measurements
+$sm: 480px;
+$small-device: 500px;
+$xxs: 320px;
+$xls: 600px;
+$xlsh: 500px;
+$xms: 375px;
+$md: 780px;
+$lgx: 1024px;
+$lg: 993px;
+$xlg: 1440px;
+$xxlg: 5000px;
+$headervh: 100vh;
+$header-padding: 10vw;
+$divider: calc(4 / 3);
+$xd-width: 1920;
+$xd-height: 1080;
+$width-of-container: calc(85px / $divider);
+$menu-height: 54px;
