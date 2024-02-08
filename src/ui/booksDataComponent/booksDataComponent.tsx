@@ -7,6 +7,8 @@ import { useEffect } from "react";
 import { backendAPi } from "../../utils/constants";
 import LoadingPage from "../../components/loadinPage/loadinPage";
 import { BookInterFace } from "../../utils/interfaces";
+import InfiniteScroll from 'react-infinite-scroll-component';
+import LoadinSpinner from "../../components/loadinSpinner/loadinSpinner";
 
 const BooksDataComponent = () => {
     const { data, loading, error, handler } = useFetchData();
@@ -14,6 +16,9 @@ const BooksDataComponent = () => {
         void handler(backendAPi.getAllBooks);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
+    const handleMoreData = () => {
+        // setTimeout(() => { }, 500)
+    }
 
     return (
         <div className={styles.booksDataComponent} id="services">
@@ -27,15 +32,33 @@ const BooksDataComponent = () => {
                             <Badge bg="danger">{error?.message}</Badge>
                         </Stack>
                     }
-                    {!loading && data?.data?.map((book: BookInterFace) => {
-                        return (
-                            <div key={book.id} className="cardWrapper">
-                                <CardService
-                                    book={book}
-                                />
-                            </div>
-                        )
-                    })}
+
+                    {!loading && data &&
+                        <InfiniteScroll
+                            className="servicesWrapper"
+                            dataLength={data?.data.length}
+                            next={() => handleMoreData}
+                            hasMore={true}
+                            loader={<LoadinSpinner />}
+                            endMessage={
+                                <p style={{ textAlign: 'center' }}>
+                                    <b>Yay! You have seen it all</b>
+                                </p>
+                            }>
+                            {
+                                data?.data?.map((book: BookInterFace) => {
+                                    return (
+                                        <div key={book.id} className="cardWrapper">
+                                            <CardService
+                                                book={book}
+                                            />
+                                        </div>
+                                    )
+                                })
+                            }
+
+                        </InfiniteScroll>
+                    }
                 </div>
             </Container>
         </div>

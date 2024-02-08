@@ -41,6 +41,9 @@
     .card-text {
       @include p;
       font-family: $poiret;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
     }
   }
 }
