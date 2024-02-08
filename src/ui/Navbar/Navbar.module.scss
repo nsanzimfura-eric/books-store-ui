@@ -18,6 +18,10 @@
       @include h1;
       font-family: $durer;
       position: relative;
+      a {
+        text-decoration: none;
+        cursor: pointer;
+      }
       small {
         @include p;
         color: $error;

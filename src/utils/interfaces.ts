@@ -1,7 +1,12 @@
 export interface BookInterFace {
-  id: number;
+  id: string;
   title: string;
   cover_image: string;
   points: number;
   tags: string;
+}
+
+export interface CartInterface {
+  book: BookInterFace;
+  quantity: number;
 }

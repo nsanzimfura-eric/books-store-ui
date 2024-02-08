@@ -1,0 +1,11 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/variables.scss";
+
+.cartComponent {
+  :global {
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+}

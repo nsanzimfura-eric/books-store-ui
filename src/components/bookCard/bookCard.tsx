@@ -1,3 +1,4 @@
+import useUpdateCart from "../../hooks/useUpdateCart";
 import { BookInterFace } from "../../utils/interfaces";
 import styles from "./bookCard.module.scss";
 
@@ -6,10 +7,10 @@ interface Book {
 }
 
 const BookCard = (props: Book) => {
+    const { addToCart } = useUpdateCart()
     const { book } = props;
     const handleAddToCart = () => {
-        console.log(book);
-
+        addToCart(book);
     }
 
     return (

@@ -7,11 +7,15 @@ import Cart from './pages/cart/Cart';
 import LoadingPage from './components/loadinPage/loadinPage';
 import useLoadFonts from './hooks/useLoadFonts';
 import NavbarComponent from './ui/Navbar/Navbar';
+import Login from './pages/login/login';
+import Register from './pages/register/register';
 
 function App() {
   const { windowLoaded, fontsLoaded } = useLoadFonts()
 
   if (!windowLoaded || !fontsLoaded) return <div style={{ width: "100vw", height: "100vh" }}><LoadingPage /></div>;
+  //  hide navbar on login and register
+
   return (
     <BrowserRouter>
       <div className="appPage">
@@ -19,6 +23,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path={apiRoutes.cart} element={<Cart />} />
+          <Route path={apiRoutes.login} element={<Login />} />
+          <Route path={apiRoutes.register} element={<Register />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </div>
