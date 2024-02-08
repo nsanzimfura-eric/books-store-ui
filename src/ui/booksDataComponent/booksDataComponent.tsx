@@ -15,8 +15,6 @@ const BooksDataComponent = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    console.log(data, loading, error);
-
     return (
         <div className={styles.booksDataComponent} id="services">
             <Container className="mb-5">

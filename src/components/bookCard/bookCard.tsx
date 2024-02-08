@@ -13,15 +13,15 @@ const BookCard = (props: Book) => {
     }
 
     return (
-        <div className={`${styles.bookCard} card bg-none d-flex flex-column`}>
+        <div className={`${styles.bookCard} card d-flex flex-column`}>
             <img src={book.cover_image} className="card-img-top img-fluid img-cover" alt="Single Service cover" />
-            <div className="card-body bg-dark">
+            <div className="card-body bg-secondary">
                 <h5 className="card-title">{book.title}</h5>
                 <div className="card-text my-2 d-flex">
                     <span className="me-auto">{book.tags}</span>
                     <span>Points: <strong>{book.points}</strong></span>
                 </div>
-                <div className="d-flex py-2 justify-content-center"><button onClick={handleAddToCart} className="appBtn">Add to cart</button></div>
+                <div className="d-flex justify-content-center"><button onClick={handleAddToCart} className="appBtn mt-auto">Add to cart</button></div>
             </div>
         </div>
     )

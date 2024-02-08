@@ -37,8 +37,9 @@ const NavbarComponent = () => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ms-auto navLinksWrapper">
-                            <a href={apiRoutes.cart} className={`links ${isActive(apiRoutes.cart)} d-none d-lg-flex`}><h2>Cart <small>0</small></h2></a>
-                            <a href='#' className='d-flex w-100 justify-content-center links d-lg-none active'>home</a>
+                            <a href={apiRoutes.cart} className={`links ${isActive(apiRoutes.cart)} d-none d-lg-flex me-5`}><h2 className='d-flex align-items-center'>Cart <small>0</small></h2></a>
+                            <a href={apiRoutes.login} className={`links ${isActive(apiRoutes.login)} me-0 me-lg-3 `}>Login</a>
+                            <a href={apiRoutes.register} className={`links ${isActive(apiRoutes.register)} register`}>Register</a>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

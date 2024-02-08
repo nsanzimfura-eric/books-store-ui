@@ -23,7 +23,6 @@
     .cardWrapper {
       border-radius: 10px;
       width: calc(100% / 5 - 30px);
-      aspect-ratio: 16/9;
       height: auto;
       @include mq($lgx) {
         width: calc(100% / 4 - 30px);

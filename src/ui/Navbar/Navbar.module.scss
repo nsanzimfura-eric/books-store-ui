@@ -51,6 +51,9 @@
       position: relative;
       @include transition;
       text-decoration: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       @include mq($lg) {
         padding: 10px 0;
       }
@@ -75,7 +78,11 @@
         }
       }
     }
+    .register {
+      @include appBtn;
+    }
     .navLinksWrapper {
+      align-items: center;
       @include mq($lg) {
         backdrop-filter: blur(34px) !important;
         .links {

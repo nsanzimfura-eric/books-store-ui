@@ -7,7 +7,8 @@
     font-family: $polisMedium;
     border: none !important;
     border-radius: inherit;
-    width: 100%;
+    width: 100% !important;
+    height: 100% !important;
     .appBtn {
       @include appBtn;
     }
@@ -17,6 +18,10 @@
     }
     .card-body {
       flex: 1 1 40% !important;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-radius: 5px;
     }
     .img-cover {
       width: 100%;
