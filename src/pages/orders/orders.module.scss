@@ -1,0 +1,19 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.orders {
+  :global {
+    background-color: transparent;
+    padding: 0;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    @include mq($md) {
+      gap: 30px;
+    }
+    @include mq($xls) {
+      gap: 20px;
+    }
+  }
+}

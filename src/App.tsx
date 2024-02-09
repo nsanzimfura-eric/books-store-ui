@@ -8,6 +8,7 @@ import LoadingPage from './components/loadinPage/loadinPage';
 import useLoadFonts from './hooks/useLoadFonts';
 import Login from './pages/login/login';
 import Register from './pages/register/register';
+import Orders from './pages/orders/orders';
 
 function App() {
   const { windowLoaded, fontsLoaded } = useLoadFonts()
@@ -20,6 +21,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path={apiRoutes.cart} element={<Cart />} />
+          <Route path={apiRoutes.orders} element={<Orders />} />
           <Route path={apiRoutes.login} element={<Login />} />
           <Route path={apiRoutes.register} element={<Register />} />
           <Route path="*" element={<PageNotFound />} />

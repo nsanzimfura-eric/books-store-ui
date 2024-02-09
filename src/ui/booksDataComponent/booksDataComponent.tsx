@@ -66,9 +66,9 @@ const BooksDataComponent = () => {
                         </Stack>
                     }
                     {!loading && displayData &&
-                        displayData.map((book: BookInterFace) => {
+                        displayData.map((book: BookInterFace, index) => {
                             return (
-                                <div key={book.id} className="cardWrapper">
+                                <div key={index} className="cardWrapper">
                                     <CardService
                                         book={book}
                                     />

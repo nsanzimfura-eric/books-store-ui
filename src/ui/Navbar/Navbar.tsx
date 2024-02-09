@@ -6,11 +6,12 @@ import { apiRoutes } from '../../utils/constants';
 import { useLocation } from 'react-router-dom';
 import { RootState } from '../../store/store';
 import { useSelector } from 'react-redux';
-import { UserInterface } from '../../utils/interfaces';
+import { CartInterface, UserInterface } from '../../utils/interfaces';
 
 
 const NavbarComponent = () => {
     const [scrolled, setScrolled] = useState(false);
+    const [cartDatas, setCartDatas] = useState<CartInterface[] | []>([]);
     const [isLoggedIn, setIsLoggedIn] = useState<UserInterface | null>(null);
     const location = useLocation();
     const isActive = (path: string) => location.pathname === path ? "active" : "";
@@ -37,8 +38,14 @@ const NavbarComponent = () => {
         if (user) {
             setIsLoggedIn(user)
         }
+        const LSCart: CartInterface[] = JSON.parse(localStorage.getItem("cart")!);
+        setCartDatas(LSCart)
     }, [])
 
+    useEffect(() => {
+        const LSCart: CartInterface[] = JSON.parse(localStorage.getItem("cart")!);
+        setCartDatas(LSCart)
+    }, [cartData])
 
     return (
         <Headroom className={styles.navbar}>
@@ -46,11 +53,11 @@ const NavbarComponent = () => {
                 <Container className='bg-none'>
                     <Navbar.Brand href={apiRoutes.home} className='brand' ><img src="/images/logo.jpg" alt="Logo" width={100} height={100} /></Navbar.Brand>
                     <h1 className='d-none d-lg-flex'>Books store</h1>
-                    <h1 className='d-flex d-lg-none'> <a href={apiRoutes.cart}>Cart <small>{cartData.length}</small></a></h1>
+                    <h1 className='d-flex d-lg-none'> <a href={apiRoutes.cart}>Cart <small>{cartDatas?.length || 0}</small></a></h1>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ms-auto navLinksWrapper">
-                            <a href={apiRoutes.cart} className={`links ${isActive(apiRoutes.cart)} d-none d-lg-flex me-5`}><h2 className='d-flex align-items-center'>Cart <small>{cartData.length}</small></h2></a>
+                            <a href={apiRoutes.cart} className={`links ${isActive(apiRoutes.cart)} d-none d-lg-flex me-5`}><h2 className='d-flex align-items-center'>Cart <small>{cartDatas?.length || 0}</small></h2></a>
                             {isLoggedIn &&
                                 <>
                                     <p className='links me-0 me-lg-2'>
