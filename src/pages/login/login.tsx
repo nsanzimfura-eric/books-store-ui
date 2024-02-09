@@ -76,8 +76,8 @@ const Login = () => {
                             <p>Please login to your account</p>
 
 
-                            <MDBInput wrapperClass='mb-4' value={formData.email} label='Email address' id='form1' type='email' required onChange={(e) => handleChange("email", e.target.value)} />
-                            <MDBInput wrapperClass='mb-4' value={formData.password} label='Password' id='form2' type='password' required onChange={(e) => handleChange("password", e.target.value)} />
+                            <MDBInput wrapperClass='mb-4' value={formData.email || ""} label='Email address' id='form1' type='email' required onChange={(e) => handleChange("email", e.target.value)} />
+                            <MDBInput wrapperClass='mb-4' value={formData.password || ""} label='Password' id='form2' type='password' required onChange={(e) => handleChange("password", e.target.value)} />
 
 
                             <div className="text-center pt-1 mb-5 pb-1">

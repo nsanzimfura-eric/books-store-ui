@@ -52,9 +52,9 @@ const Register = () => {
                     </MDBCol>
                     <MDBCol col='4' md='6'>
                         {!loading && !data && <>
-                            <MDBInput wrapperClass='mb-4' value={formData.full_name} label='Full Name' id='formControlLg' type='text' size="lg" required onChange={(e) => handleChange("full_name", e.target.value)} />
-                            <MDBInput wrapperClass='mb-4' value={formData.email} label='Email address' id='formControlLg' type='email' size="lg" required onChange={(e) => handleChange("email", e.target.value)} />
-                            <MDBInput wrapperClass='mb-4' value={formData.password} label='Password' id='formControlLg' type='password' size="lg" required onChange={(e) => handleChange("password", e.target.value)} />
+                            <MDBInput wrapperClass='mb-4' value={formData.full_name} label='Full Name' id='full_name' type='text' size="lg" required onChange={(e) => handleChange("full_name", e.target.value)} />
+                            <MDBInput wrapperClass='mb-4' value={formData.email} label='Email address' id='email' type='email' size="lg" required onChange={(e) => handleChange("email", e.target.value)} />
+                            <MDBInput wrapperClass='mb-4' value={formData.password} label='Password' id='password' type='password' size="lg" required onChange={(e) => handleChange("password", e.target.value)} />
                             <div className='text-center text-md-start mt-4 pt-2'>
                                 <button className="mb-0 px-5 w-100 btn btn-primary" type="submit" onClick={handleSubmit}>Register</button>
                                 <p className="small fw-bold mt-2 pt-1 mb-2">Have an account? <a href={apiRoutes.login} className="link-danger">Login</a></p>
