@@ -10,12 +10,29 @@
     display: flex;
     flex-direction: column;
     gap: 50px;
-    margin-top: 100px;
+    padding-top: 100px;
+    background: linear-gradient(to right, $secondary, $dark, $border, $success);
     @include mq($md) {
       gap: 30px;
     }
     @include mq($xls) {
       gap: 20px;
+    }
+
+    .divider:after,
+    .divider:before {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #eee;
+    }
+    .h-custom {
+      height: calc(100% - 73px);
+    }
+    @media (max-width: 450px) {
+      .h-custom {
+        height: 100%;
+      }
     }
   }
 }

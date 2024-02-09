@@ -17,5 +17,37 @@
     @include mq($xls) {
       gap: 20px;
     }
+
+    .gradient-custom-2 {
+      background: #b59a78;
+
+      background: -webkit-linear-gradient(
+        to right,
+        #7b7a7a,
+        #000000,
+        #5f3a48,
+        $success
+      );
+
+      background: linear-gradient(
+        to right,
+        #343332,
+        #272020,
+        #120c0e,
+        $success
+      );
+    }
+
+    @media (min-width: 768px) {
+      .gradient-form {
+        height: 100vh !important;
+      }
+    }
+    @media (min-width: 769px) {
+      .gradient-custom-2 {
+        border-top-right-radius: 0.3rem;
+        border-bottom-right-radius: 0.3rem;
+      }
+    }
   }
 }
