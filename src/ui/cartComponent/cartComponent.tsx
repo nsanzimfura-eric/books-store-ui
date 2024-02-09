@@ -76,7 +76,7 @@ const CartComponent = () => {
 
     return (
         <div className={styles.cartComponent}>
-            {cartData &&
+            {cartData && cartData?.length > 0 &&
                 <Container className="mb-5 containerCart">
                     {loading && !data && !error &&
                         <div className="loadingWrapper">
@@ -121,7 +121,7 @@ const CartComponent = () => {
 
                 </Container>
             }
-            {!cartData &&
+            {(!cartData || cartData?.length === 0) &&
                 <div className="d-flex justify-content-center align-items-center cartEmpty">
                     <p className="text-danger cartText">Empty Cart</p>
                 </div>}
