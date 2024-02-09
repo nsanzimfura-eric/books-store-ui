@@ -6,10 +6,12 @@ import { apiRoutes } from '../../utils/constants';
 import { useLocation } from 'react-router-dom';
 import { RootState } from '../../store/store';
 import { useSelector } from 'react-redux';
+import { UserInterface } from '../../utils/interfaces';
 
 
 const NavbarComponent = () => {
     const [scrolled, setScrolled] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState<UserInterface | null>(null);
     const location = useLocation();
     const isActive = (path: string) => location.pathname === path ? "active" : "";
     const cartData = useSelector((state: RootState) => state.cartReducer.cart);
@@ -30,6 +32,13 @@ const NavbarComponent = () => {
         };
     }, [scrolled]);
 
+    useEffect(() => {
+        const user: UserInterface = JSON.parse(localStorage.getItem("user")!);
+        if (user) {
+            setIsLoggedIn(user)
+        }
+    }, [])
+
 
     return (
         <Headroom className={styles.navbar}>
@@ -42,8 +51,22 @@ const NavbarComponent = () => {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ms-auto navLinksWrapper">
                             <a href={apiRoutes.cart} className={`links ${isActive(apiRoutes.cart)} d-none d-lg-flex me-5`}><h2 className='d-flex align-items-center'>Cart <small>{cartData.length}</small></h2></a>
-                            <a href={apiRoutes.login} className={`links ${isActive(apiRoutes.login)} me-0 me-lg-3 `}>Login</a>
-                            <a href={apiRoutes.register} className={`links ${isActive(apiRoutes.register)} register`}>Register</a>
+                            {isLoggedIn &&
+                                <>
+                                    <p className='links me-0 me-lg-2'>
+                                        {isLoggedIn.full_name}
+                                    </p>
+                                    <p className='links ms-0 ms-lg-2'>
+                                        Points: <strong className='ms-1  text-bg-info'>{isLoggedIn.points}</strong>
+                                    </p>
+                                </>
+                            }
+                            {!isLoggedIn &&
+                                <>
+                                    <a href={apiRoutes.login} className={`links ${isActive(apiRoutes.login)} me-0 me-lg-3 `}>Login</a>
+                                    <a href={apiRoutes.register} className={`links ${isActive(apiRoutes.register)} register`}>Register</a>
+                                </>
+                            }
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
