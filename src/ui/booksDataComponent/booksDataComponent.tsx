@@ -8,11 +8,16 @@ import { backendAPi } from "../../utils/constants";
 import LoadingPage from "../../components/loadinPage/loadinPage";
 import { BookInterFace } from "../../utils/interfaces";
 import LoadinSpinner from "../../components/loadinSpinner/loadinSpinner";
+import InfiniteScroll from "../../components/InfiniteScroll";
 
 const BooksDataComponent = () => {
     const [booksData, setBooksData] = useState([])
-    const [page, setPage] = useState(0)
+    const [displayData, setDisplayData] = useState([]);
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [loadMore, setLoadMore] = useState(false)
     const { data, loading, error, handler } = useFetchData();
+    const [hasMore, setHasMore] = useState(true);
+    const itemsPerPage = 10;
 
     useEffect(() => {
         void handler(backendAPi.getAllBooks);
@@ -22,13 +27,30 @@ const BooksDataComponent = () => {
     useEffect(() => {
         if (!loading && data) {
             setBooksData(data.data)
+            // Initially load first set of data
+            setDisplayData(data.data.slice(0, itemsPerPage));
+            setCurrentIndex(itemsPerPage);
         }
     }, [data, loading])
 
-    const handleMoreData = () => {
-        setTimeout(() => {
+    const handleMoreData = async () => {
+        if (displayData.length <= data.data.length) {
+            if (!loading && !loadMore && hasMore && data) {
+                setLoadMore(true);
+                const nextIndex = currentIndex + itemsPerPage;
+                setTimeout(() => {
+                    const newData = booksData.slice(0, nextIndex);
+                    setBooksData(data.data)
+                    setDisplayData(displayData => [...displayData, ...newData]);
+                    setCurrentIndex(nextIndex);
+                }, 1000);
 
-        }, 500)
+
+            }
+        } else {
+            setLoadMore(false);
+            setHasMore(false);
+        }
     }
 
     return (
@@ -43,8 +65,8 @@ const BooksDataComponent = () => {
                             <Badge bg="danger">{error?.message}</Badge>
                         </Stack>
                     }
-                    {!loading && data &&
-                        data?.data?.map((book: BookInterFace) => {
+                    {!loading && displayData &&
+                        displayData.map((book: BookInterFace) => {
                             return (
                                 <div key={book.id} className="cardWrapper">
                                     <CardService
@@ -54,7 +76,11 @@ const BooksDataComponent = () => {
                             )
                         })
                     }
-
+                    {hasMore && !loading && data && <InfiniteScroll onReachBottom={handleMoreData} />}
+                    <div className="w-100 d-flex justify-content-center">
+                        {hasMore && loadMore && data && <LoadinSpinner />}
+                        {!hasMore && !loading && data && <p className="text-success">No more books to load!</p>}
+                    </div>
                 </div>
             </Container>
         </div>

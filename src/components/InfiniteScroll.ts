@@ -1,13 +1,13 @@
-import { useEffect, useCallback } from "react";
+import React, { useEffect, useCallback } from "react";
 
 interface InfiniteScrollProps {
   onReachBottom: () => void;
 }
 
-const useScroll = ({ onReachBottom }: InfiniteScrollProps) => {
+const InfiniteScroll: React.FC<InfiniteScrollProps> = ({ onReachBottom }) => {
   const handleScroll = useCallback(() => {
-    const scrollPosition = window.scrollY + window.innerHeight; // Current scroll position
-    const threshold = document.documentElement.scrollHeight * 0.8; // 80% of the page height
+    const scrollPosition = window.scrollY + window.innerHeight;
+    const threshold = document.documentElement.scrollHeight * 0.8;
 
     if (scrollPosition >= threshold) {
       onReachBottom();
@@ -22,4 +22,5 @@ const useScroll = ({ onReachBottom }: InfiniteScrollProps) => {
 
   return null;
 };
-export default useScroll;
+
+export default InfiniteScroll;
