@@ -10,6 +10,8 @@ export const apiRoutes = {
 
 export const backendAPi = {
   getAllBooks: `${baseUrl}/books`,
+  getUserOrders: `${baseUrl}/orders`,
+  cancelOrder: `${baseUrl}/orders`,
   login: `${baseUrl}/auth/login`,
   signUp: `${baseUrl}/auth/register`,
   placeOrder: `${baseUrl}/orders`,

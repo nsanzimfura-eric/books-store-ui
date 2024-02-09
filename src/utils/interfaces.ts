@@ -4,6 +4,7 @@ export interface BookInterFace {
   cover_image: string;
   points: number;
   tags: string;
+  writer: string;
 }
 
 export interface CartInterface {

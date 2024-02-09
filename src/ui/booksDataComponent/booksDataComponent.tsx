@@ -56,8 +56,8 @@ const BooksDataComponent = () => {
     return (
         <div className={styles.booksDataComponent} id="services">
             <Container className="mb-5">
-                <h2 className="text-center w-100" >Featured books</h2>
-                <small className="d-flex justify-content-center pb-3 text-light w-100">use your Points to order your favorite book to read</small>
+                <h2 className="text-center w-100 title" >Featured books</h2>
+                <small className="d-flex justify-content-center pb-3 text-light subTitle w-100">use your Points to order your favorite book to read</small>
                 <div className="servicesWrapper mt-3">
                     {loading && <LoadingPage />}
                     {!loading && !data && !error &&

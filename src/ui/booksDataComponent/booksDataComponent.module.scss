@@ -21,6 +21,10 @@
       flex-wrap: wrap;
       gap: 30px;
     }
+    .title,
+    .subTitle {
+      font-family: $durer;
+    }
     .cardWrapper {
       border-radius: 10px;
       width: calc(100% / 5 - 30px);

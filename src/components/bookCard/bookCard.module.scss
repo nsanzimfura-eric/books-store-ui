@@ -9,6 +9,9 @@
     border-radius: inherit;
     width: 100% !important;
     height: 100% !important;
+    * {
+      font-family: $polisMedium;
+    }
     .appBtn {
       @include appBtn;
     }

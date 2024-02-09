@@ -15,5 +15,52 @@
     @include mq($xls) {
       gap: 20px;
     }
+    .title {
+      font-family: $durer;
+    }
+    .ordersWrapper {
+      min-height: 40vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      .NoOrders {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        div {
+          @include p;
+          color: $light;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          a {
+            text-decoration-color: $light;
+            padding-bottom: 3px;
+          }
+        }
+      }
+    }
+    .ordersTable {
+      @include mq($sm) {
+        overflow-x: auto;
+      }
+    }
+
+    .intru {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    .costTotal {
+      color: $light !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 30px;
+      width: 50px;
+    }
   }
 }

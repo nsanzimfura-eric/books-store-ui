@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const useFetchData = () => {
+const useDeleteData = () => {
   const [data, setData] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<any>(null);
@@ -10,7 +10,7 @@ const useFetchData = () => {
     const token = localStorage.getItem("token");
     setLoading(true);
     try {
-      const response = await axios.get(url, {
+      const response = await axios.delete(url, {
         headers: token ? { Authorization: `Bearer ${token}` } : {},
       });
       setData(response.data);
@@ -26,4 +26,4 @@ const useFetchData = () => {
   return { data, loading, error, handler };
 };
 
-export default useFetchData;
+export default useDeleteData;
