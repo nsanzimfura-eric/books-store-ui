@@ -1,9 +1,0 @@
-services:
-  - type: web
-    name: bookstore
-    env: static
-    staticPublishPath: ./dist
-    routes:
-      - type: rewrite
-        source: /**
-        destination: /index.html
