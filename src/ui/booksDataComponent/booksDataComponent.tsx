@@ -58,7 +58,7 @@ const BooksDataComponent = () => {
         const value = e.target.value.trim();
         if (value) {
             if (value.toLowerCase() !== 'all') {
-                const filteredBooks = booksData.filter((book: BookInterFace) => {
+                const filteredBooks = data?.data?.filter((book: BookInterFace) => {
                     let wantedBook: BookInterFace | null = null
                     if (book.tags.split(',').includes(value.toLowerCase())) {
                         wantedBook = book;
